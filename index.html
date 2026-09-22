@@ -1,0 +1,639 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Eslam Al-Bialy | IoT, Embedded Systems & Flutter Developer</title>
+    <meta name="description" content="البورتفوليو الرسمي للمبتكر الشاب إسلام محمد سعدالله (إسلام البيلي) - 15 سنة. متخصص في أنظمة Arduino، الإلكترونيات، إنترنت الأشياء IoT، مبادرة أشبال مصر الرقمية (DECI)، وتطبيقات Flutter.">
+    <meta name="keywords" content="Eslam Al-Bialy, إسلام البيلي, Arduino, IoT, Electronics, DECI, EDCI, مبادرة أشبال مصر الرقمية, Flutter, Dart, Python, ذوي الهمم, شفرة مورس, Portfolio">
+    <meta name="author" content="Eslam Mohamed Saadallah (Eslam Al-Bialy)">
+    
+    <!-- Open Graph for Social Sharing -->
+    <meta property="og:title" content="Eslam Al-Bialy | IoT, Embedded Systems & Flutter Developer">
+    <meta property="og:description" content="15 y/o Tech Innovator & DECI Scholar. Arduino, Electronics, Computer Vision AI & Flutter Mobile Apps.">
+    <meta property="og:type" content="website">
+
+    <!-- Google Fonts: JetBrains Mono (Code), Poppins (English UI), Cairo (Arabic UI) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;700&family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <!-- Main Stylesheet -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- Ambient Background Glows -->
+    <div class="glow-orb orb-1"></div>
+    <div class="glow-orb orb-2"></div>
+    <div class="glow-orb orb-3"></div>
+
+    <!-- Navigation Bar -->
+    <header class="navbar" id="navbar">
+        <div class="nav-container">
+            <a href="#hero" class="brand-logo">
+                <span class="logo-bracket">&lt;</span>Eslam<span class="logo-accent">.Tech</span><span class="logo-bracket">/&gt;</span>
+            </a>
+
+            <nav class="nav-links" id="nav-links">
+                <a href="#about" class="nav-link" data-i18n="nav_about">عني</a>
+                <a href="#skills" class="nav-link" data-i18n="nav_skills">المهارات</a>
+                <a href="#projects" class="nav-link" data-i18n="nav_projects">المشاريع</a>
+                <a href="#morse-lab" class="nav-link" data-i18n="nav_morse">معمل مورس</a>
+                <a href="#experience" class="nav-link" data-i18n="nav_experience">المبادرات</a>
+                <a href="#contact" class="nav-link" data-i18n="nav_contact">تواصل معي</a>
+            </nav>
+
+            <div class="nav-actions">
+                <!-- Sister Portfolio Bridge -->
+                <a href="https://asmaaelbialy.github.io/asmaa-portfolio1/" target="_blank" rel="noopener noreferrer" class="sister-badge" title="Visit Eng. Asmaa Al-Bialy's AI & Data Engineering Portfolio">
+                    <span class="sister-icon"><i class="fas fa-sparkles"></i></span>
+                    <span class="sister-text">&lt;Asmaa<span class="accent-text">.AI</span>/&gt;</span>
+                </a>
+
+                <!-- Language Toggle Button -->
+                <button class="lang-toggle-btn" id="lang-toggle" aria-label="Toggle Language / تبديل اللغة">
+                    <i class="fas fa-globe"></i>
+                    <span id="lang-label">EN</span>
+                </button>
+
+                <!-- Mobile Menu Button -->
+                <button class="menu-toggle" id="menu-toggle" aria-label="Toggle Navigation Menu">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section class="hero-section" id="hero">
+            <div class="hero-container">
+                <div class="hero-content">
+                    <div class="status-badge">
+                        <span class="pulse-dot"></span>
+                        <span data-i18n="hero_status">متاح للمشاريع والابتكار • باحث بمبادرة أشبال مصر الرقمية (DECI) • 15 عاماً</span>
+                    </div>
+
+                    <h1 class="hero-title">
+                        <span data-i18n="hero_greeting">أهلاً بك، أنا</span> 
+                        <span class="gradient-text" data-i18n="hero_name">إسلام البيلي</span>
+                    </h1>
+
+                    <div class="typewriter-container">
+                        <span class="typewriter-prefix" data-i18n="typewriter_prefix">أبتكر </span>
+                        <span class="typewriter-text" id="typewriter"></span>
+                        <span class="cursor">|</span>
+                    </div>
+
+                    <p class="hero-bio" data-i18n="hero_bio">
+                        مبتكر شاب وشغوف بعالم <strong>الأنظمة المدمجة والإلكترونيات الذكية (Arduino & IoT)</strong>، طالب في 
+                        <strong>مبادرة أشبال مصر الرقمية (DECI)</strong> للذكاء الاصطناعي، ومطور تطبيقات الموبايل بـ 
+                        <strong>Flutter & Dart</strong>. أحول الأسلاك والمستشعرات والأكواد إلى حلول واقعية ذكية تخدم المجتمع وتدعم ذوي الهمم واستدامة الطاقة.
+                    </p>
+
+                    <div class="hero-actions">
+                        <a href="#projects" class="btn btn-primary">
+                            <i class="fas fa-microchip"></i> <span data-i18n="btn_explore_projects">استعراض المشاريع</span>
+                        </a>
+                        <a href="#contact" class="btn btn-secondary">
+                            <i class="fas fa-paper-plane"></i> <span data-i18n="btn_get_in_touch">تواصل معي فوراً</span>
+                        </a>
+                        <a href="https://wa.me/201006391487" target="_blank" rel="noopener noreferrer" class="btn btn-outline" title="WhatsApp Chat">
+                            <i class="fab fa-whatsapp"></i>
+                        </a>
+                        <a href="https://www.linkedin.com/in/eslam-al-bialy-a77a8b381" target="_blank" rel="noopener noreferrer" class="btn btn-outline" title="LinkedIn Profile">
+                            <i class="fab fa-linkedin-in"></i>
+                        </a>
+                    </div>
+
+                    <!-- Quick Stats Bar -->
+                    <div class="hero-stats">
+                        <div class="stat-item">
+                            <i class="fas fa-layer-group stat-icon"></i>
+                            <div class="stat-info">
+                                <span class="stat-number">9+</span>
+                                <span class="stat-label" data-i18n="stat_projects">مشاريع تقنية منجزة</span>
+                            </div>
+                        </div>
+                        <div class="stat-divider"></div>
+                        <div class="stat-item">
+                            <i class="fas fa-bolt stat-icon"></i>
+                            <div class="stat-info">
+                                <span class="stat-number">15</span>
+                                <span class="stat-label" data-i18n="stat_age">عاماً من الشغف والإبداع</span>
+                            </div>
+                        </div>
+                        <div class="stat-divider"></div>
+                        <div class="stat-item">
+                            <i class="fas fa-graduation-cap stat-icon"></i>
+                            <div class="stat-info">
+                                <span class="stat-number">4</span>
+                                <span class="stat-label" data-i18n="stat_deci">محاور تميز بمبادرة DECI</span>
+                            </div>
+                        </div>
+                        <div class="stat-divider"></div>
+                        <div class="stat-item">
+                            <i class="fab fa-flutter stat-icon"></i>
+                            <div class="stat-info">
+                                <span class="stat-number">100%</span>
+                                <span class="stat-label" data-i18n="stat_maker">بناء التطبيقات والدوائر</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="hero-visual">
+                    <div class="avatar-wrapper">
+                        <div class="avatar-ring ring-outer"></div>
+                        <div class="avatar-ring ring-middle"></div>
+                        <div class="avatar-frame">
+                            <img src="assets/images/eslam.jpg" 
+                                 alt="إسلام محمد سعدالله (إسلام البيلي)" 
+                                 class="avatar-img">
+                        </div>
+                        
+                        <!-- Floating Badges -->
+                        <div class="floating-badge badge-hardware">
+                            <i class="fas fa-microchip"></i>
+                            <span data-i18n="badge_hardware">Arduino &amp; IoT</span>
+                        </div>
+                        <div class="floating-badge badge-flutter">
+                            <i class="fab fa-flutter"></i>
+                            <span data-i18n="badge_flutter">Flutter &amp; Dart</span>
+                        </div>
+                        <div class="floating-badge badge-ai">
+                            <i class="fas fa-robot"></i>
+                            <span data-i18n="badge_ai">طالب مبادرة DECI</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <a href="#about" class="scroll-down-indicator" aria-label="التمرير للأسفل">
+                <i class="fas fa-chevron-down"></i>
+            </a>
+        </section>
+
+        <!-- About Me Section -->
+        <section class="section about-section" id="about">
+            <div class="section-container">
+                <div class="section-header">
+                    <span class="section-tag"><i class="fas fa-user-astronaut"></i> <span data-i18n="about_tag">القصة والمسيرة</span></span>
+                    <h2 class="section-title"><span data-i18n="about_title_1">نبذة عن</span> <span class="gradient-text" data-i18n="about_title_2">إسلام البيلي</span></h2>
+                    <p class="section-subtitle" data-i18n="about_subtitle">مزيج فريد يجمع بين ابتكار الدوائر الإلكترونية والبرمجة والذكاء الاصطناعي وتطبيقات الهاتف في عمر الـ 15 عاماً.</p>
+                </div>
+
+                
+
+                <div class="about-grid">
+                    <!-- Main About Card -->
+                    <div class="about-card main-about">
+                        <div class="about-card-icon">
+                            <i class="fas fa-laptop-code"></i>
+                        </div>
+                        <h3 data-i18n="about_card1_title">شغف لا يتوقف بالهندسة والابتكار</h3>
+                        <p data-i18n="about_card1_p1">
+                            أنا <strong>إسلام محمد سعدالله</strong> (الشهير بـ <strong>إسلام البيلي</strong>)، عمري 15 عاماً. انطلقت رحلتي بتعلم أساسيات الإلكترونيات ودوائر Arduino كاملة، وقمت بتصميم وبرمجة مختلف الأنظمة التفاعلية من الصفر. قادر على تنفيذ أي فكرة مشروع باستخدام لوحات Arduino والمستشعرات والمحركات.
+                        </p>
+                        <p data-i18n="about_card1_p2">
+                            بصفتي طالباً في <strong>مبادرة أشبال مصر الرقمية (DECI)</strong>، تعمقت في لغة Python، بيئة PictoBlox لتدريب نماذج الذكاء الاصطناعي ورؤية الحاسوب، وتحليل البيانات عبر Google Sheets وتصميم عروض الأثر عبر Google Slides، مع بناء تطبيقات ذكية لذوي الهمم بـ MIT App Inventor.
+                        </p>
+                        <div class="about-highlights">
+                            <div class="highlight-item">
+                                <div class="highlight-icon icon-cyan"><i class="fas fa-solar-panel"></i></div>
+                                <span data-i18n="highlight_1">تصميم وتنفيذ أنظمة ذكية بالطاقة المتجددة وإنارة الشوارع التلقائية</span>
+                            </div>
+                            <div class="highlight-item">
+                                <div class="highlight-icon icon-green"><i class="fas fa-glasses"></i></div>
+                                <span data-i18n="highlight_2">بناء أجهزة مساعدة وتقنية لخدمة ذوي الهمم والمكفوفين</span>
+                            </div>
+                            <div class="highlight-item">
+                                <div class="highlight-icon icon-blue"><i class="fab fa-flutter"></i></div>
+                                <span data-i18n="highlight_3">بناء وتطوير تطبيقات الموبايل بـ Flutter و Dart و Android Studio</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 3 Pillars Cards -->
+                    <div class="about-pillar-stack">
+                        <div class="pillar-card">
+                            <div class="pillar-icon icon-cyan">
+                                <i class="fas fa-microchip"></i>
+                            </div>
+                            <div class="pillar-info">
+                                <h4 data-i18n="pillar1_title">الأنظمة المدمجة وإنترنت الأشياء (IoT)</h4>
+                                <p data-i18n="pillar1_desc">احتراف لوحات Arduino، المتحكمات، المستشعرات المتنوعة، الدوائر التناظرية والرقمية، وبرمجة C/C++ لتنفيذ أجهزة مستقلة بكفاءة عالية.</p>
+                            </div>
+                        </div>
+
+                        <div class="pillar-card">
+                            <div class="pillar-icon icon-green">
+                                <i class="fas fa-brain"></i>
+                            </div>
+                            <div class="pillar-info">
+                                <h4 data-i18n="pillar2_title">مبادرة أشبال مصر الرقمية (DECI)</h4>
+                                <p data-i18n="pillar2_desc">تدريب متقدم في الذكاء الاصطناعي، رؤية الحاسوب (Computer Vision)، لغة Python، وتدريب النماذج لترجمة إشارات اليد بالصوت والكاميرا.</p>
+                            </div>
+                        </div>
+
+                        <div class="pillar-card">
+                            <div class="pillar-icon icon-blue">
+                                <i class="fab fa-flutter"></i>
+                            </div>
+                            <div class="pillar-info">
+                                <h4 data-i18n="pillar3_title">تطبيقات الموبايل (Flutter &amp; Dart)</h4>
+                                <p data-i18n="pillar3_desc">تطوير تطبيقات عصرية سريعة تدعم أندرويد و iOS، مثل منظم المذاكرة الفعال وتطبيق حساب العمر البيولوجي التفاعلي.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Skills Section -->
+        <section class="section skills-section" id="skills">
+            <div class="section-container">
+                <div class="section-header">
+                    <span class="section-tag"><i class="fas fa-layer-group"></i> <span data-i18n="skills_tag">الترسانة التقنية</span></span>
+                    <h2 class="section-title"><span data-i18n="skills_title_1">المهارات</span> <span class="gradient-text" data-i18n="skills_title_2">والأدوات</span></h2>
+                    <p class="section-subtitle" data-i18n="skills_subtitle">التقنيات والمكونات واللغات التي أوظفها في بناء أنظمة الهاردوير وتطبيقات السوفتوير.</p>
+                </div>
+
+                <div class="skills-grid">
+                    <!-- Embedded Systems & Hardware -->
+                    <div class="skill-category-card">
+                        <div class="skill-cat-header">
+                            <div class="cat-icon icon-cyan"><i class="fas fa-microchip"></i></div>
+                            <div>
+                                <h3 data-i18n="skill_cat_hardware">الأنظمة المدمجة والإلكترونيات</h3>
+                                <span class="cat-count">Arduino &amp; Electronics</span>
+                            </div>
+                        </div>
+                        <div class="skill-badges">
+                            <span class="skill-badge"><i class="fas fa-check"></i> Arduino Uno / Nano</span>
+                            <span class="skill-badge"><i class="fas fa-check"></i> Circuit Prototyping</span>
+                            <span class="skill-badge"><i class="fas fa-check"></i> Ultrasonic Sensors (HC-SR04)</span>
+                            <span class="skill-badge"><i class="fas fa-check"></i> Soil Moisture Sensors</span>
+                            <span class="skill-badge"><i class="fas fa-check"></i> DHT11 / DHT22 (Temp &amp; Humidity)</span>
+                            <span class="skill-badge"><i class="fas fa-check"></i> LDR Light Sensors</span>
+                            <span class="skill-badge"><i class="fas fa-check"></i> Voltage Dividers (مجزئ الجهد)</span>
+                            <span class="skill-badge"><i class="fas fa-check"></i> DC Motors, Relays &amp; Pumps</span>
+                            <span class="skill-badge"><i class="fas fa-check"></i> Buzzers &amp; Piezo Sound</span>
+                        </div>
+                    </div>
+
+                    <!-- Mobile Development -->
+                    <div class="skill-category-card">
+                        <div class="skill-cat-header">
+                            <div class="cat-icon icon-blue"><i class="fab fa-flutter"></i></div>
+                            <div>
+                                <h3 data-i18n="skill_cat_mobile">تطوير تطبيقات الموبايل</h3>
+                                <span class="cat-count">Cross-Platform Mobile</span>
+                            </div>
+                        </div>
+                        <div class="skill-badges">
+                            <span class="skill-badge"><i class="fab fa-flutter"></i> Flutter Framework</span>
+                            <span class="skill-badge"><i class="fas fa-code"></i> Dart Programming</span>
+                            <span class="skill-badge"><i class="fab fa-android"></i> Android Studio</span>
+                            <span class="skill-badge"><i class="fas fa-mobile-alt"></i> Responsive UI Design</span>
+                            <span class="skill-badge"><i class="fas fa-clock"></i> Pomodoro &amp; Study Logics</span>
+                            <span class="skill-badge"><i class="fas fa-brain"></i> AI &amp; Image API Integration</span>
+                            <span class="skill-badge"><i class="fas fa-sliders-h"></i> State Management</span>
+                        </div>
+                    </div>
+
+                    <!-- AI & DECI Tools -->
+                    <div class="skill-category-card">
+                        <div class="skill-cat-header">
+                            <div class="cat-icon icon-green"><i class="fas fa-robot"></i></div>
+                            <div>
+                                <h3 data-i18n="skill_cat_deci">الذكاء الاصطناعي ومبادرة DECI</h3>
+                                <span class="cat-count">Egypt Digital Cubs (DECI)</span>
+                            </div>
+                        </div>
+                        <div class="skill-badges">
+                            <span class="skill-badge"><i class="fab fa-python"></i> Python Programming</span>
+                            <span class="skill-badge"><i class="fas fa-eye"></i> PictoBlox (Computer Vision)</span>
+                            <span class="skill-badge"><i class="fas fa-network-wired"></i> AI Model Training</span>
+                            <span class="skill-badge"><i class="fas fa-hands"></i> Sign Language Recognition</span>
+                            <span class="skill-badge"><i class="fas fa-mobile"></i> MIT App Inventor</span>
+                            <span class="skill-badge"><i class="fas fa-table"></i> Google Sheets Data Analytics</span>
+                            <span class="skill-badge"><i class="fas fa-chalkboard-teacher"></i> Google Slides Presentation</span>
+                        </div>
+                    </div>
+
+                    <!-- Engineering & Tools -->
+                    <div class="skill-category-card">
+                        <div class="skill-cat-header">
+                            <div class="cat-icon icon-amber"><i class="fas fa-tools"></i></div>
+                            <div>
+                                <h3 data-i18n="skill_cat_tools">الأدوات والهندسة التطبيقية</h3>
+                                <span class="cat-count">Lab &amp; Workflow</span>
+                            </div>
+                        </div>
+                        <div class="skill-badges">
+                            <span class="skill-badge"><i class="fas fa-tachometer-alt"></i> Multimeter &amp; Testing</span>
+                            <span class="skill-badge"><i class="fas fa-plug"></i> Breadboard Wiring</span>
+                            <span class="skill-badge"><i class="fas fa-terminal"></i> Serial Monitor &amp; Telemetry</span>
+                            <span class="skill-badge"><i class="fab fa-git-alt"></i> Git &amp; GitHub</span>
+                            <span class="skill-badge"><i class="fas fa-volume-up"></i> Text-to-Speech (TTS)</span>
+                            <span class="skill-badge"><i class="fas fa-lightbulb"></i> Renewable Energy Logic</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Projects Showcase Section -->
+        <section class="section projects-section" id="projects">
+            <div class="section-container">
+                <div class="section-header">
+                    <span class="section-tag"><i class="fas fa-cubes"></i> <span data-i18n="projects_tag">معرض الإنجازات</span></span>
+                    <h2 class="section-title"><span data-i18n="projects_title_1">أبرز</span> <span class="gradient-text" data-i18n="projects_title_2">المشاريع المبتكرة</span></h2>
+                    <p class="section-subtitle" data-i18n="projects_subtitle">استكشف 9 مشاريع عملية قمت بتصميم دوائرها وبرمجتها واختبارها على أرض الواقع.</p>
+                </div>
+
+                <!-- Category Filter Buttons -->
+                <div class="filter-container">
+                    <button class="filter-btn active" data-filter="all">
+                        <i class="fas fa-layer-group"></i> <span data-i18n="filter_all">جميع المشاريع (9)</span>
+                    </button>
+                    <button class="filter-btn" data-filter="iot">
+                        <i class="fas fa-microchip"></i> <span data-i18n="filter_iot">إنترنت الأشياء و Arduino (6)</span>
+                    </button>
+                    <button class="filter-btn" data-filter="deci">
+                        <i class="fas fa-graduation-cap"></i> <span data-i18n="filter_deci">مبادرة أشبال مصر DECI (1)</span>
+                    </button>
+                    <button class="filter-btn" data-filter="flutter">
+                        <i class="fab fa-flutter"></i> <span data-i18n="filter_flutter">تطبيقات الموبايل Flutter (2)</span>
+                    </button>
+                </div>
+
+                <!-- Dynamic Projects Grid rendered by JavaScript -->
+                <div class="projects-grid" id="projects-grid">
+                    <!-- Populated dynamically to ensure 100% pure English / Arabic parity -->
+                </div>
+            </div>
+        </section>
+
+        <!-- Interactive Morse Code Lab Section (Unique Interactive Hardware Simulation!) -->
+        <section class="section morse-section" id="morse-lab">
+            <div class="section-container">
+                <div class="section-header">
+                    <span class="section-tag"><i class="fas fa-wave-square"></i> <span data-i18n="morse_tag">تجربة تفاعلية حية</span></span>
+                    <h2 class="section-title"><span data-i18n="morse_title_1">معمل إرسال وترجمة</span> <span class="gradient-text" data-i18n="morse_title_2">شفرة مورس</span></h2>
+                    <p class="section-subtitle" data-i18n="morse_subtitle">محاكاة حية لمشروع جهاز مورس الذي بنيته بـ Arduino! جرب كتابة النص أو الضغط على مفتاح التلغراف واستمع لنغمات مورس الحقيقية مع وميض LED المتزامن.</p>
+                </div>
+
+                <div class="morse-console">
+                    <div class="console-header">
+                        <div class="console-led-unit">
+                            <div class="morse-led" id="morse-led"></div>
+                            <span class="led-label" data-i18n="led_status_label">مؤشر الإشارة (Virtual Hardware LED)</span>
+                        </div>
+                        <div class="console-status" id="morse-status">النظام جاهز للإرسال • READY</div>
+                    </div>
+
+                    <div class="console-body">
+                        <div class="morse-input-group">
+                            <label for="morse-text-input" data-i18n="morse_input_label">اكتب أي كلمة أو جملة (عربي أو إنجليزي أو أرقام):</label>
+                            <div class="input-action-row">
+                                <input type="text" id="morse-text-input" placeholder="اكتب هنا مثلاً: ESLAM أو SOS أو 2026..." value="ESLAM">
+                                <button class="btn btn-primary" id="btn-play-morse">
+                                    <i class="fas fa-play"></i> <span data-i18n="btn_transmit">إرسال وتشفير (Transmit)</span>
+                                </button>
+                                <button class="btn btn-secondary" id="btn-stop-morse">
+                                    <i class="fas fa-stop"></i> <span data-i18n="btn_stop">إيقاف</span>
+                                </button>
+                            </div>
+                        </div>
+
+                        <div class="morse-display-box">
+                            <div class="display-label" data-i18n="morse_output_label">كود مورس الناتج:</div>
+                            <div class="morse-code-output" id="morse-code-output">. ... .-.. .- --</div>
+                        </div>
+
+                        <!-- Manual Telegraph Key (Touch/Click) -->
+                        <div class="telegraph-unit">
+                            <h4 data-i18n="telegraph_heading">مفتاح التلغراف اليدوي (Manual Telegraph Key)</h4>
+                            <p data-i18n="telegraph_instruction">اضغط واستمر بالضغط على الزر لإطلاق الصوت والضوء فوراً كما في الدائرة الحقيقية بـ Arduino:</p>
+                            <button class="telegraph-key-btn" id="telegraph-key" aria-label="Manual Telegraph Key">
+                                <div class="key-knob"></div>
+                                <span data-i18n="press_hold">اضغط مع الاستمرار (Tap &amp; Hold)</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Experience & Initiatives Section -->
+        <section class="section exp-section" id="experience">
+            <div class="section-container">
+                <div class="section-header">
+                    <span class="section-tag"><i class="fas fa-trophy"></i> <span data-i18n="exp_tag">المحطات والمبادرات</span></span>
+                    <h2 class="section-title"><span data-i18n="exp_title_1">التعليم</span> <span class="gradient-text" data-i18n="exp_title_2">والمبادرات الوطنية</span></h2>
+                    <p class="section-subtitle" data-i18n="exp_subtitle">المشاركات التدريبية والشغف العملي المستمر في التكنولوجيا والبرمجة.</p>
+                </div>
+
+                <div class="timeline">
+                    <!-- Item 1: DECI -->
+                    <div class="timeline-item">
+                        <div class="timeline-marker icon-marker"><i class="fas fa-graduation-cap"></i></div>
+                        <div class="timeline-content">
+                            <span class="timeline-date">2023 - 2026</span>
+                            <h3 data-i18n="item1_title">طالب متميز بمبادرة أشبال مصر الرقمية (DECI)</h3>
+                            <h4 data-i18n="item1_org">وزارة الاتصالات وتكنولوجيا المعلومات المصرية</h4>
+                            <p data-i18n="item1_desc">
+                                انضمام وتفوق في البرنامج الوطني لتدريب قادة التكنولوجيا المستقبليين. دراسة Python والذكاء الاصطناعي وأدوات Google التحليلية وبناء نماذج Machine Learning وتطبيقات Mobile داعمة لذوي الهمم.
+                            </p>
+                            <div class="timeline-tags">
+                                <span>Python</span>
+                                <span>AI Models</span>
+                                <span>PictoBlox</span>
+                                <span>MIT App Inventor</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Item 2: Arduino & Hardware Maker -->
+                    <div class="timeline-item">
+                        <div class="timeline-marker icon-marker"><i class="fas fa-microchip"></i></div>
+                        <div class="timeline-content">
+                            <span class="timeline-date">2022 - الآن</span>
+                            <h3 data-i18n="item2_title">مبتكر أنظمة مدمجة و IoT مستقل</h3>
+                            <h4 data-i18n="item2_org">معمل إسلام البيلي للابتكار والمشاريع الذكية</h4>
+                            <p data-i18n="item2_desc">
+                                إتمام كورس الإلكترونيات التأسيسي وكورس برمجة Arduino بالكامل. ابتكار أكثر من 6 نماذج عملية تتنوع بين المدن الذكية، الطاقة المتجددة، الأجهزة المساعدة للمكفوفين، وأنظمة الري الآلية.
+                            </p>
+                            <div class="timeline-tags">
+                                <span>Arduino Uno &amp; Nano</span>
+                                <span>Sensors &amp; Actuators</span>
+                                <span>Circuit Design</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Item 3: Mobile Apps Track -->
+                    <div class="timeline-item">
+                        <div class="timeline-marker icon-marker"><i class="fab fa-flutter"></i></div>
+                        <div class="timeline-content">
+                            <span class="timeline-date">2023 - الآن</span>
+                            <h3 data-i18n="item3_title">مطور تطبيقات Mobile بـ (Flutter &amp; Dart)</h3>
+                            <h4 data-i18n="item3_org">Android Studio &amp; Cross-Platform Development</h4>
+                            <p data-i18n="item3_desc">
+                                دراسة وتطبيق مفاهيم Flutter لتصميم واجهات تفاعلية متجاوبة وربط التطبيقات بنماذج الذكاء الاصطناعي وتحليل البيانات البيولوجية وتنظيم الوقت.
+                            </p>
+                            <div class="timeline-tags">
+                                <span>Flutter</span>
+                                <span>Dart</span>
+                                <span>Clean Architecture</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section class="section contact-section" id="contact">
+            <div class="section-container">
+                <div class="section-header">
+                    <span class="section-tag"><i class="fas fa-envelope-open-text"></i> <span data-i18n="contact_tag">ابدأ التواصل الآن</span></span>
+                    <h2 class="section-title"><span data-i18n="contact_title_1">تواصل</span> <span class="gradient-text" data-i18n="contact_title_2">معي</span></h2>
+                    <p class="section-subtitle" data-i18n="contact_subtitle">هل لديك فكرة مشروع في Arduino أو الذكاء الاصطناعي أو تطبيقات Flutter؟ يسعدني التعاون معك دائماً.</p>
+                </div>
+
+                <div class="contact-wrapper">
+                    <!-- Contact Cards Grid -->
+                    <div class="contact-info-grid">
+                        
+                        <!-- Phone & WhatsApp -->
+                        <div class="contact-card">
+                            <div class="contact-icon icon-green"><i class="fab fa-whatsapp"></i></div>
+                            <div class="contact-details">
+                                <span class="contact-label" data-i18n="contact_phone_label">الهاتف وواتساب</span>
+                                <a href="https://wa.me/201006391487" target="_blank" rel="noopener noreferrer" class="contact-val">01006391487</a>
+                            </div>
+                            <button class="btn-copy" onclick="copyText('01006391487', 'تم نسخ رقم الهاتف!')" title="نسخ الرقم">
+                                <i class="far fa-copy"></i>
+                            </button>
+                        </div>
+
+                        <!-- Email -->
+                        <div class="contact-card">
+                            <div class="contact-icon icon-cyan"><i class="fas fa-envelope"></i></div>
+                            <div class="contact-details">
+                                <span class="contact-label" data-i18n="contact_email_label">البريد الإلكتروني</span>
+                                <a href="mailto:eslamelbialy735@gmail.com" class="contact-val">eslamelbialy735@gmail.com</a>
+                            </div>
+                            <button class="btn-copy" onclick="copyText('eslamelbialy735@gmail.com', 'تم نسخ البريد الإلكتروني!')" title="نسخ الإيميل">
+                                <i class="far fa-copy"></i>
+                            </button>
+                        </div>
+
+                        <!-- LinkedIn -->
+                        <div class="contact-card">
+                            <div class="contact-icon icon-blue"><i class="fab fa-linkedin-in"></i></div>
+                            <div class="contact-details">
+                                <span class="contact-label" data-i18n="contact_linkedin_label">لينكد إن (LinkedIn)</span>
+                                <a href="https://www.linkedin.com/in/eslam-al-bialy-a77a8b381" target="_blank" rel="noopener noreferrer" class="contact-val">eslam-al-bialy</a>
+                            </div>
+                            <a href="https://www.linkedin.com/in/eslam-al-bialy-a77a8b381" target="_blank" rel="noopener noreferrer" class="btn-open-link" title="Open LinkedIn">
+                                <i class="fas fa-external-link-alt"></i>
+                            </a>
+                        </div>
+
+                        <!-- Social Handle -->
+                        <div class="contact-card">
+                            <div class="contact-icon icon-amber"><i class="fas fa-at"></i></div>
+                            <div class="contact-details">
+                                <span class="contact-label" data-i18n="contact_social_label">اليوزر نيم الموحد</span>
+                                <span class="contact-val">@eslam_albialy</span>
+                            </div>
+                            <button class="btn-copy" onclick="copyText('@eslam_albialy', 'تم نسخ اليوزر نيم!')" title="نسخ">
+                                <i class="far fa-copy"></i>
+                            </button>
+                        </div>
+
+                    </div>
+
+                    <!-- Direct Message Box -->
+                    <div class="direct-msg-card">
+                        <h3 data-i18n="direct_msg_title">أرسل رسالة مباشرة</h3>
+                        <p data-i18n="direct_msg_subtitle">املأ النموذج وسيتم فتح بريدك الإلكتروني برسالة جاهزة فورياً:</p>
+                        <form id="contact-form" onsubmit="handleFormSubmit(event)">
+                            <div class="form-group">
+                                <input type="text" id="sender-name" placeholder="اسمك الكريم" required>
+                            </div>
+                            <div class="form-group">
+                                <input type="text" id="sender-subject" placeholder="موضوع الرسالة أو اسم المشروع" required>
+                            </div>
+                            <div class="form-group">
+                                <textarea id="sender-message" rows="4" placeholder="اكتب تفاصيل فكرتك أو استفسارك هنا..." required></textarea>
+                            </div>
+                            <button type="submit" class="btn btn-primary btn-block">
+                                <i class="fas fa-paper-plane"></i> <span data-i18n="btn_send_msg">إرسال الرسالة</span>
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Project Details Modal -->
+    <div class="modal-overlay" id="project-modal" onclick="closeProjectModal(event)">
+        <div class="modal-content" onclick="event.stopPropagation()">
+            <button class="modal-close" onclick="closeProjectModal()" aria-label="Close Project Modal">
+                <i class="fas fa-times"></i>
+            </button>
+            <div id="modal-body">
+                <!-- Injected via JavaScript -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Toast Notification -->
+    <div class="toast" id="toast">
+        <i class="fas fa-check-circle"></i>
+        <span id="toast-message">تم النسخ بنجاح!</span>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-top">
+                <div class="footer-brand">
+                    <a href="#hero" class="brand-logo">
+                        <span class="logo-bracket">&lt;</span>Eslam<span class="logo-accent">.Tech</span><span class="logo-bracket">/&gt;</span>
+                    </a>
+                    <p data-i18n="footer_bio">مبتكر أنظمة مدمجة وإنترنت الأشياء، وباحث بمبادرة أشبال مصر الرقمية (DECI) ومطور تطبيقات Flutter.</p>
+                </div>
+
+                
+
+                <div class="footer-socials">
+                    <a href="https://wa.me/201006391487" target="_blank" rel="noopener noreferrer" title="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+                    <a href="https://www.linkedin.com/in/eslam-al-bialy-a77a8b381" target="_blank" rel="noopener noreferrer" title="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="mailto:eslamelbialy735@gmail.com" title="Email"><i class="fas fa-envelope"></i></a>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p data-i18n="footer_copyright">&copy; 2026 إسلام محمد سعدالله (إسلام البيلي). صُمم ونُفّذ بأعلى معايير الأداء والجماليات السيبرانية.</p>
+                <div class="footer-bottom-links">
+                    <a href="#hero" data-i18n="footer_top">العودة للأعلى <i class="fas fa-arrow-up"></i></a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Main JavaScript -->
+    <script src="script.js"></script>
+</body>
+</html>
