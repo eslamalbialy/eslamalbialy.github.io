@@ -49,7 +49,7 @@
     </g>
   </g>
 
-  <!-- Title & Subtitle Badge -->
+  <!-- Title and Subtitle Badge -->
   <g transform="translate(400, 360)" text-anchor="middle">
     <!-- Cyber Badge Pill -->
     <rect x="-180" y="-22" width="360" height="42" rx="21" fill="rgba(11, 19, 39, 0.85)" stroke="url(#primaryGrad)" stroke-width="1.2"/>

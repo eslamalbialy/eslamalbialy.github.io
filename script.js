@@ -574,7 +574,7 @@ const projectsList = [
         svgFile: "studyflow.svg",
         icon: "fas fa-book-reader",
         badgeColor: "blue",
-        badgeIcon: "fab fa-flutter",
+        badgeIcon: "fas fa-mobile-screen-button",
         metricIcon: "fas fa-clock",
         ar: {
             categoryName: "تطبيقات الموبايل بـ Flutter",
@@ -619,7 +619,7 @@ const projectsList = [
         svgFile: "bioage.svg",
         icon: "fas fa-heartbeat",
         badgeColor: "blue",
-        badgeIcon: "fab fa-flutter",
+        badgeIcon: "fas fa-mobile-screen-button",
         metricIcon: "fas fa-heartbeat",
         ar: {
             categoryName: "تطبيقات الموبايل والذكاء الاصطناعي",
