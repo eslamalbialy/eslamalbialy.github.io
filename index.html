@@ -1,9 +1,16 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
+    <script>
+        /* Avoid a flash of the long desktop layout on phones before JS boots */
+        if (window.matchMedia && window.matchMedia('(max-width: 768px)').matches) {
+            document.documentElement.classList.add('m-pre');
+        }
+    </script>
     <link rel="icon" type="image/png" href="/favicon.png">
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <meta name="theme-color" content="#070a13">
     <title>Eslam El Baily | Portfolio</title>
     <meta name="description" content="Eslam El Baily personal portfolio showcasing projects, programming skills, AI projects, and web development work.">
     <meta name="keywords" content="Eslam El Baily, Eslam El Baily Portfolio, Eslam El Baily website, Eslam El Baily projects, AI projects, programming, web development">
@@ -62,7 +69,7 @@
             <div class="nav-actions">
                 <!-- Sister Portfolio Bridge -->
                 <a href="https://asmaaelbialy.github.io/asmaa-portfolio1/" target="_blank" rel="noopener noreferrer" class="sister-badge" title="Visit Eng. Asmaa Al-Bialy's AI & Data Engineering Portfolio">
-                    <span class="sister-icon"><i class="fas fa-sparkles"></i></span>
+                    <span class="sister-icon"><i class="fas fa-wand-magic-sparkles"></i></span>
                     <span class="sister-text">&lt;Asmaa<span class="accent-text">.AI</span>/&gt;</span>
                 </a>
 
@@ -641,6 +648,30 @@
             </div>
         </div>
     </footer>
+
+    <!-- Mobile Bottom Navigation (hidden on desktop) -->
+    <nav class="bottom-nav" id="bottom-nav" aria-label="Main navigation">
+        <button class="bnav-item active" data-page="home" type="button">
+            <span class="bnav-ico"><i class="fas fa-house"></i></span>
+            <span class="bnav-label" data-i18n="bnav_home">الرئيسية</span>
+        </button>
+        <button class="bnav-item" data-page="about" type="button">
+            <span class="bnav-ico"><i class="fas fa-user"></i></span>
+            <span class="bnav-label" data-i18n="bnav_about">عني</span>
+        </button>
+        <button class="bnav-item" data-page="projects" type="button">
+            <span class="bnav-ico"><i class="fas fa-cubes"></i></span>
+            <span class="bnav-label" data-i18n="bnav_projects">المشاريع</span>
+        </button>
+        <button class="bnav-item" data-page="morse" type="button">
+            <span class="bnav-ico"><i class="fas fa-wave-square"></i></span>
+            <span class="bnav-label" data-i18n="bnav_morse">مورس</span>
+        </button>
+        <button class="bnav-item" data-page="contact" type="button">
+            <span class="bnav-ico"><i class="fas fa-envelope"></i></span>
+            <span class="bnav-label" data-i18n="bnav_contact">تواصل</span>
+        </button>
+    </nav>
 
     <!-- Main JavaScript -->
     <script src="script.js"></script>

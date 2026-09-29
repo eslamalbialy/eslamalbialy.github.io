@@ -122,6 +122,13 @@ const translations = {
         direct_msg_subtitle: "املأ النموذج وسيتم فتح بريدك الإلكتروني برسالة جاهزة فورياً:",
         btn_send_msg: "إرسال الرسالة",
 
+        // Mobile bottom navigation
+        bnav_home: "الرئيسية",
+        bnav_about: "عني",
+        bnav_projects: "المشاريع",
+        bnav_morse: "مورس",
+        bnav_contact: "تواصل",
+
         // Footer
         footer_bio: "مبتكر أنظمة مدمجة وإنترنت الأشياء، وباحث بمبادرة أشبال مصر الرقمية (DECI) ومطور تطبيقات Flutter.",
         footer_copyright: "© 2026 إسلام البيلي. صُمم ونُفّذ بأعلى معايير الأداء والجماليات السيبرانية.",
@@ -240,6 +247,13 @@ const translations = {
         direct_msg_title: "Send a Direct Message",
         direct_msg_subtitle: "Fill out the form below and it will compose an email ready to send instantly:",
         btn_send_msg: "Send Message",
+
+        // Mobile bottom navigation
+        bnav_home: "Home",
+        bnav_about: "About",
+        bnav_projects: "Projects",
+        bnav_morse: "Morse",
+        bnav_contact: "Contact",
 
         // Footer
         footer_bio: "Embedded systems & IoT innovator, DECI scholar, and Flutter mobile application developer.",
@@ -1394,6 +1408,11 @@ document.addEventListener('DOMContentLoaded', () => {
         anchor.addEventListener('click', function(e) {
             const targetId = this.getAttribute('href');
             if (targetId === '#') return;
+            // Mobile app-mode: switch "page" instead of scrolling
+            if (window.mobileApp && window.mobileApp.handleAnchor(targetId)) {
+                e.preventDefault();
+                return;
+            }
             const targetEl = document.querySelector(targetId);
             if (targetEl) {
                 e.preventDefault();
@@ -1411,3 +1430,233 @@ document.addEventListener('DOMContentLoaded', () => {
     setLanguage('ar');
     updateActiveNavLink();
 });
+
+// ==========================================
+// 12. MOBILE APP MODE (<= 768px)
+// Bottom-tab "pages", accordions, tap-to-open cards, swipe-down sheet.
+// Desktop layout is not affected: every rule is gated by body.m-ready.
+// ==========================================
+(function () {
+    const mq = window.matchMedia('(max-width: 768px)');
+    const isMobile = () => mq.matches;
+
+    const PAGES = {
+        home:     { sections: ['hero'],                         hash: 'hero' },
+        about:    { sections: ['about', 'skills', 'experience'], hash: 'about' },
+        projects: { sections: ['projects'],                     hash: 'projects' },
+        morse:    { sections: ['morse-lab'],                    hash: 'morse-lab' },
+        contact:  { sections: ['contact'],                      hash: 'contact' }
+    };
+    const ACCORDIONS = ['about', 'skills', 'experience'];
+
+    const sectionToPage = {};
+    Object.keys(PAGES).forEach(p => PAGES[p].sections.forEach(id => { sectionToPage[id] = p; }));
+
+    let currentPage = 'home';
+
+    function pageFromHash() {
+        const id = (location.hash || '').replace('#', '');
+        return sectionToPage[id] || 'home';
+    }
+
+    function scrollTopInstant() {
+        const root = document.documentElement;
+        const prev = root.style.scrollBehavior;
+        root.style.scrollBehavior = 'auto';
+        window.scrollTo(0, 0);
+        root.style.scrollBehavior = prev;
+    }
+
+    function openAccordion(id) {
+        ACCORDIONS.forEach(x => {
+            const el = document.getElementById(x);
+            if (el) el.classList.toggle('m-open', x === id);
+        });
+    }
+
+    function toggleAccordion(section) {
+        const willOpen = !section.classList.contains('m-open');
+        ACCORDIONS.forEach(x => {
+            const el = document.getElementById(x);
+            if (el) el.classList.remove('m-open');
+        });
+        if (willOpen) {
+            section.classList.add('m-open');
+            setTimeout(() => {
+                section.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            }, 60);
+        }
+    }
+
+    function showPage(name, opts) {
+        opts = opts || {};
+        if (!PAGES[name]) name = 'home';
+        currentPage = name;
+
+        document.querySelectorAll('main > section[id]').forEach(sec => {
+            sec.classList.toggle('m-show', sectionToPage[sec.id] === name);
+        });
+        document.body.setAttribute('data-m-page', name);
+
+        document.querySelectorAll('.bnav-item').forEach(btn => {
+            const on = btn.getAttribute('data-page') === name;
+            btn.classList.toggle('active', on);
+            btn.setAttribute('aria-current', on ? 'page' : 'false');
+        });
+
+        if (!opts.keepScroll) scrollTopInstant();
+
+        if (opts.push !== false) {
+            const newHash = '#' + PAGES[name].hash;
+            if (location.hash !== newHash) {
+                try { history.pushState({ mpage: name }, '', newHash); } catch (err) { /* file:// etc. */ }
+            }
+        }
+    }
+
+    function handleAnchor(targetId) {
+        if (!isMobile()) return false;
+        const id = (targetId || '').replace('#', '');
+        const page = sectionToPage[id];
+        if (!page) return false;
+        showPage(page);
+        if (page === 'about') openAccordion(id);
+        return true;
+    }
+
+    function applyMode() {
+        document.documentElement.classList.remove('m-pre');
+        if (isMobile()) {
+            document.body.classList.add('m-ready');
+            const page = pageFromHash();
+            showPage(page, { push: false, keepScroll: true });
+            if (page === 'about') {
+                const id = (location.hash || '').replace('#', '');
+                openAccordion(ACCORDIONS.indexOf(id) > -1 ? id : 'about');
+            }
+        } else {
+            document.body.classList.remove('m-ready', 'kb-open');
+            document.body.removeAttribute('data-m-page');
+            document.querySelectorAll('.m-show').forEach(el => el.classList.remove('m-show'));
+        }
+    }
+
+    function init() {
+        // Mark elements that behave like accordions / tap-to-expand cards
+        ACCORDIONS.forEach(id => {
+            const el = document.getElementById(id);
+            if (el) el.classList.add('m-acc');
+        });
+        ['.main-about', '.pillar-card', '.skill-category-card', '.timeline-item', '.hero-bio']
+            .forEach(sel => document.querySelectorAll(sel).forEach(el => el.classList.add('m-tap')));
+
+        // Single delegated click handler (works after projects re-render on language change)
+        document.addEventListener('click', (e) => {
+            if (!isMobile()) return;
+
+            // Bottom tabs
+            const tab = e.target.closest('.bnav-item');
+            if (tab) {
+                const page = tab.getAttribute('data-page');
+                if (page === currentPage) {
+                    window.scrollTo({ top: 0, behavior: 'smooth' });
+                } else {
+                    showPage(page);
+                    if (page === 'about' && !document.querySelector('.m-acc.m-open')) openAccordion('about');
+                }
+                return;
+            }
+
+            // Accordion headers (About page)
+            const head = e.target.closest('.m-acc > .section-container > .section-header');
+            if (head) {
+                toggleAccordion(head.closest('.m-acc'));
+                return;
+            }
+
+            // Project card -> open details sheet
+            const card = e.target.closest('#projects-grid .project-card');
+            if (card) {
+                if (e.target.closest('button')) return; // inline buttons already handle it
+                openProjectModal(card.getAttribute('data-id'));
+                return;
+            }
+
+            // Generic tap-to-expand cards
+            const tap = e.target.closest('.m-tap');
+            if (tap && !e.target.closest('a, button, input, textarea')) {
+                tap.classList.toggle('m-open');
+            }
+        });
+
+        // Hide bottom bar while the keyboard is open (inputs / textarea)
+        document.addEventListener('focusin', (e) => {
+            if (isMobile() && e.target.matches && e.target.matches('input, textarea')) {
+                document.body.classList.add('kb-open');
+            }
+        });
+        document.addEventListener('focusout', () => {
+            setTimeout(() => {
+                const a = document.activeElement;
+                if (!(a && a.matches && a.matches('input, textarea'))) {
+                    document.body.classList.remove('kb-open');
+                }
+            }, 80);
+        });
+
+        // Browser back/forward moves between tabs
+        window.addEventListener('popstate', () => {
+            if (!isMobile()) return;
+            const page = pageFromHash();
+            showPage(page, { push: false });
+            if (page === 'about' && !document.querySelector('.m-acc.m-open')) openAccordion('about');
+        });
+
+        // Swipe-down to close the project bottom sheet
+        const sheet = document.querySelector('#project-modal .modal-content');
+        if (sheet) {
+            let startY = null;
+            let dy = 0;
+            sheet.addEventListener('touchstart', (e) => {
+                if (!isMobile() || sheet.scrollTop > 0) { startY = null; return; }
+                startY = e.touches[0].clientY;
+                dy = 0;
+                sheet.style.transition = 'none';
+            }, { passive: true });
+            sheet.addEventListener('touchmove', (e) => {
+                if (startY === null) return;
+                dy = e.touches[0].clientY - startY;
+                if (dy > 0) {
+                    sheet.style.transform = 'translateY(' + dy + 'px)';
+                } else {
+                    dy = 0;
+                    sheet.style.transform = '';
+                }
+            }, { passive: true });
+            const endDrag = () => {
+                if (startY === null) return;
+                sheet.style.transition = '';
+                sheet.style.transform = '';
+                const shouldClose = dy > 110;
+                startY = null;
+                dy = 0;
+                if (shouldClose) closeProjectModal();
+            };
+            sheet.addEventListener('touchend', endDrag, { passive: true });
+            sheet.addEventListener('touchcancel', endDrag, { passive: true });
+        }
+
+        if (mq.addEventListener) mq.addEventListener('change', applyMode);
+        else if (mq.addListener) mq.addListener(applyMode);
+
+        applyMode();
+    }
+
+    window.mobileApp = { showPage, handleAnchor, isMobile };
+
+    if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', init);
+    } else {
+        init();
+    }
+})();
